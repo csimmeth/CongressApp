@@ -14,6 +14,7 @@
 		52ECCA5A1DED4F580088F54D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52ECCA591DED4F580088F54D /* Assets.xcassets */; };
 		52ECCA5D1DED4F580088F54D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52ECCA5B1DED4F580088F54D /* LaunchScreen.storyboard */; };
 		52ECCA681DED4F580088F54D /* CongressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA671DED4F580088F54D /* CongressTests.swift */; };
+		52ECCA751DED56B60088F54D /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA741DED56B60088F54D /* DetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		52ECCA631DED4F580088F54D /* CongressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CongressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ECCA671DED4F580088F54D /* CongressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongressTests.swift; sourceTree = "<group>"; };
 		52ECCA691DED4F580088F54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52ECCA741DED56B60088F54D /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		52ECCA4F1DED4F580088F54D /* Congress */ = {
 			isa = PBXGroup;
 			children = (
+				52ECCA741DED56B60088F54D /* DetailController.swift */,
 				52ECCA501DED4F580088F54D /* AppDelegate.swift */,
 				52ECCA521DED4F580088F54D /* FirstViewController.swift */,
 				52ECCA541DED4F580088F54D /* SecondViewController.swift */,
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52ECCA751DED56B60088F54D /* DetailController.swift in Sources */,
 				52ECCA551DED4F580088F54D /* SecondViewController.swift in Sources */,
 				52ECCA511DED4F580088F54D /* AppDelegate.swift in Sources */,
 				52ECCA531DED4F580088F54D /* FirstViewController.swift in Sources */,
