@@ -11,7 +11,11 @@ import Alamofire
 import SwiftyJSON
 
 class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
+    
+    @IBOutlet weak var legislatorsTableView: UITableView!
 
+    var numLegislators = 0;
+    var legislators:[JSON] = []
     let data:[[String]] = [["One","Two","Three"],["Four","Five","Six"],["Seven","Eight","Nine"]]
     var currentSelection:Int = 0
     override func viewDidLoad() {
@@ -21,12 +25,17 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
+                self.legislators = json["results"].arrayValue
+                self.numLegislators = self.legislators.count
+                print("JSON: \(self.numLegislators)")
+                print(self.legislators[0]["first_name"].string!)
+                self.legislatorsTableView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,12 +45,14 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath)
-        cell.textLabel?.text = data[0][indexPath.row]
+        cell.textLabel?.text = legislators[indexPath.row]["first_name"].string!
+        print("here")
+        print(legislators[indexPath.row]["first_name"].string!)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return numLegislators
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
