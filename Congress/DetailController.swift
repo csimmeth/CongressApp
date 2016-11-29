@@ -10,7 +10,8 @@ import UIKit
 
 class DetailController: UIViewController, UITableViewDataSource {
     
-    var details:[String?] = ["a","b","c"]
+    let labels:[String] = ["First Name","Last Name","State","Gender","Birth date","Chamber","Fax No.","Twitter","Facebook","Website","Office","End Term"]
+    var details:[String?] = []
     var text:String = ""
     var id:String = ""
     @IBOutlet weak var detailsLabel: UILabel!
@@ -30,8 +31,9 @@ class DetailController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath)
-        cell.textLabel?.text = details[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as! legisDetailsCell
+        cell.col1?.text = labels[indexPath.row] // set this as headers
+        cell.col2?.text = details[indexPath.row]
         return cell
     }
     

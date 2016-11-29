@@ -10,6 +10,9 @@ import UIKit
 
 class legisDetailsCell: UITableViewCell {
 
+    @IBOutlet weak var col1: UILabel!
+    @IBOutlet weak var col2: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
