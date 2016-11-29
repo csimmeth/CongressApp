@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
 
@@ -14,6 +16,16 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     var currentSelection:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        let url = "http://hw811944.us-west-2.elasticbeanstalk.com/a8/index.php?keyword=legislators"
+        Alamofire.request(url).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+            case .failure(let error):
+                print(error)
+            }
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
