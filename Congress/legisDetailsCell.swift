@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
 class legisDetailsCell: UITableViewCell {
 
-    @IBOutlet weak var col1: UILabel!
-    @IBOutlet weak var col2: UILabel!
+    @IBOutlet weak var labels: UILabel!
+    @IBOutlet weak var data: TTTAttributedLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

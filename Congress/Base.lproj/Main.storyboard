@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Detail Controller-->
+        <!--Delegate-->
         <scene sceneID="G38-iT-3Hb">
             <objects>
                 <viewController id="YYe-sp-ZNb" customClass="DetailController" customModule="Congress" customModuleProvider="target" sceneMemberID="viewController">
@@ -117,25 +117,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxI-W2-yNG">
-                                                    <rect key="frame" x="8" y="11" width="98" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Col1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJw-Wg-gTw">
+                                                    <rect key="frame" x="8" y="0.0" width="115" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJw-Wg-gTw">
-                                                    <rect key="frame" x="114" y="11" width="253" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74H-eX-JgQ" customClass="TTTAttributedLabel">
+                                                    <rect key="frame" x="131" y="4" width="244" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="YYe-sp-ZNb" id="2jY-ft-P0B"/>
+                                                    </connections>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="col1" destination="mxI-W2-yNG" id="kJj-Dz-6th"/>
-                                            <outlet property="col2" destination="rJw-Wg-gTw" id="sHX-4D-1zt"/>
+                                            <outlet property="data" destination="74H-eX-JgQ" id="Mlx-SV-KI5"/>
+                                            <outlet property="labels" destination="rJw-Wg-gTw" id="VY7-sl-zqn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

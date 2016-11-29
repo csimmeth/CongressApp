@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
-class DetailController: UIViewController, UITableViewDataSource {
+import TTTAttributedLabel
+class DetailController: UIViewController, UITableViewDataSource,TTTAttributedLabelDelegate {
     
     @IBOutlet weak var legisImage: UIImageView!
+    
     let labels:[String] = ["First Name","Last Name","State","Gender","Birth date","Chamber","Fax No.","Twitter","Facebook","Website","Office","End Term"]
     var details:[String?] = []
     var text:String = ""
@@ -35,9 +36,23 @@ class DetailController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as! legisDetailsCell
-        cell.col1?.text = labels[indexPath.row] // set this as headers
-        cell.col2?.text = details[indexPath.row]
+        cell.labels?.text = labels[indexPath.row] // set this as headers
+        cell.data.text = details[indexPath.row]
+        if(indexPath.row == 7){
+            var str : NSString = "Twitter Link"
+            var url_str:String = details[indexPath.row]!
+            cell.data.delegate = self
+            cell.data.text = str as String
+            var range : NSRange = str.range(of: str as String)
+            cell.data.addLink(to: URL(string: url_str)!, with: range)
+           // cell.data.addLink
+        }
         return cell
+    }
+    
+    
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        UIApplication.shared.open(url)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
