@@ -10,18 +10,21 @@ import UIKit
 
 class DetailController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var legisImage: UIImageView!
     let labels:[String] = ["First Name","Last Name","State","Gender","Birth date","Chamber","Fax No.","Twitter","Facebook","Website","Office","End Term"]
     var details:[String?] = []
     var text:String = ""
     var id:String = ""
-    @IBOutlet weak var detailsLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //TODO load details into table (just set array data?) Could do this in segue function
-        detailsLabel.text = text
 
+        let imgstring = "https://theunitedstates.io/images/congress/original/\(id).jpg"
+        let url = URL(string: imgstring)
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        legisImage.image = UIImage(data: data!)
         // Do any additional setup after loading the view.
     }
 
