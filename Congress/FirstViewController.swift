@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SDWebImage
 
 class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
     
@@ -27,8 +28,6 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
                 let json = JSON(value)
                 self.legislators = json["results"].arrayValue
                 self.numLegislators = self.legislators.count
-                print("JSON: \(self.numLegislators)")
-                print(self.legislators[0]["first_name"].string!)
                 self.legislatorsTableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -45,9 +44,29 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath)
-        cell.textLabel?.text = legislators[indexPath.row]["first_name"].string!
-        print("here")
-        print(legislators[indexPath.row]["first_name"].string!)
+        cell.textLabel?.text = "\(legislators[indexPath.row]["last_name"].string!), \(legislators[indexPath.row]["first_name"].string!)"
+        cell.detailTextLabel?.text = legislators[indexPath.row]["state_name"].string!
+        //cell.imageView?.sd_setImageWithURL(NSURL(string: "https://theunitedstates.io/images/congress/original/D000626.jpg")! as URL,placeholderImage:UIImage(named:"placeholder.png"))
+        //cell.imageView?.sd_setImage(with: NSURL(string: "https://theunitedstates.io/images/congress/original/D000626.jpg")! as URL!)
+        let urlString = "https://theunitedstates.io/images/congress/original/D000626.jpg"
+        
+        
+        //http://stackoverflow.com/questions/4962561/set-uiimageview-image-using-a-url
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil {
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                print("Not a proper HTTPURLResponse or statusCode")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                cell.imageView?.image = UIImage(data: data!)
+            }
+            }.resume()
         return cell
     }
     

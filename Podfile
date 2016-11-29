@@ -8,6 +8,7 @@ target 'Congress' do
   # Pods for Congress
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
 
   target 'CongressTests' do
     inherit! :search_paths
