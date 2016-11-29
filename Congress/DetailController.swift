@@ -16,6 +16,7 @@ class DetailController: UIViewController, UITableViewDataSource,TTTAttributedLab
     var details:[String?] = []
     var text:String = ""
     var id:String = ""
+    let links:[String] = ["Twitter Link","Facebook Link","Website Link"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +39,15 @@ class DetailController: UIViewController, UITableViewDataSource,TTTAttributedLab
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as! legisDetailsCell
         cell.labels?.text = labels[indexPath.row] // set this as headers
         cell.data.text = details[indexPath.row]
-        if(indexPath.row == 7){
-            var str : NSString = "Twitter Link"
-            var url_str:String = details[indexPath.row]!
-            cell.data.delegate = self
-            cell.data.text = str as String
-            var range : NSRange = str.range(of: str as String)
-            cell.data.addLink(to: URL(string: url_str)!, with: range)
-           // cell.data.addLink
+        if(indexPath.row > 6 && indexPath.row < 10){
+            let url_str:String = details[indexPath.row]!
+            if(!(url_str == "N/A")){
+                let str : NSString = links[indexPath.row - 7] as NSString
+                cell.data.delegate = self
+                cell.data.text = str as String
+                let range : NSRange = str.range(of: str as String)
+                cell.data.addLink(to: URL(string: url_str)!, with: range)
+            }
         }
         return cell
     }
