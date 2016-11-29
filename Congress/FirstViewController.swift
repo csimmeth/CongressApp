@@ -48,7 +48,8 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
         cell.detailTextLabel?.text = legislators[indexPath.row]["state_name"].string!
         //cell.imageView?.sd_setImageWithURL(NSURL(string: "https://theunitedstates.io/images/congress/original/D000626.jpg")! as URL,placeholderImage:UIImage(named:"placeholder.png"))
         //cell.imageView?.sd_setImage(with: NSURL(string: "https://theunitedstates.io/images/congress/original/D000626.jpg")! as URL!)
-        let urlString = "https://theunitedstates.io/images/congress/original/D000626.jpg"
+        let id = legislators[indexPath.row]["bioguide_id"].string!
+        let urlString = "https://theunitedstates.io/images/congress/original/\(id).jpg"
         
         
         //http://stackoverflow.com/questions/4962561/set-uiimageview-image-using-a-url
@@ -75,7 +76,6 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("table selected")
 
         currentSelection = indexPath.row
         performSegue(withIdentifier: "detailsSegue", sender: Any?.self)
@@ -85,10 +85,44 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detail:DetailController = segue.destination as! DetailController
         //Set data of congressmen here for detailcontroller to use
+        let person:JSON = legislators[currentSelection]
         
-        print("setting string")
-        detail.text = String(currentSelection)
-        detail.details = data[currentSelection]
+        var fax_string:String? = "N/A"
+        var twitter_id:String? = "N/A"
+        var facebook_id:String? = "N/A"
+        var website:String? = "N/A"
+
+        if let temp = person["fax"].string {
+            fax_string = temp
+        }
+        if let temp = person["twitter_id"].string {
+            twitter_id = "https://twitter.com/\(temp)"
+        }
+        if let temp = person["facebook_id"].string {
+            facebook_id = "https://facebook.com/\(temp)"
+        }
+        if let temp = person["website"].string {
+            website = temp
+        }
+        
+        detail.details = [person["first_name"].string,
+                          person["last_name"].string,
+                          person["state_name"].string,
+                          person["gender"].string,
+                          person["birthday"].string,
+                          person["chamber"].string,
+                          fax_string,
+                          twitter_id,
+                          facebook_id,
+                          website,
+                          person["term_end"].string]
+        detail.id = person["bioguide_id"].string!
+        
+        //person["twitter_id"].string!,
+        //person["facebook_id"].string!,
+        //person["website"].string!,
+        //person["office"].string!,
+
     }
 }
 

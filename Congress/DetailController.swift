@@ -10,8 +10,9 @@ import UIKit
 
 class DetailController: UIViewController, UITableViewDataSource {
     
-    var details:[String] = ["a","b","c"]
+    var details:[String?] = ["a","b","c"]
     var text:String = ""
+    var id:String = ""
     @IBOutlet weak var detailsLabel: UILabel!
 
     override func viewDidLoad() {
