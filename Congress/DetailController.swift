@@ -11,6 +11,8 @@ import TTTAttributedLabel
 class DetailController: UIViewController, UITableViewDataSource,TTTAttributedLabelDelegate {
     
     @IBOutlet weak var legisImage: UIImageView!
+    @IBOutlet weak var favSwitch: UISwitch!
+    
     
     let labels:[String] = ["First Name","Last Name","State","Gender","Birth date","Chamber","Fax No.","Twitter","Facebook","Website","Office","End Term"]
     var details:[String?] = []
@@ -25,8 +27,17 @@ class DetailController: UIViewController, UITableViewDataSource,TTTAttributedLab
 
         let imgstring = "https://theunitedstates.io/images/congress/original/\(id).jpg"
         let url = URL(string: imgstring)
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        let data = try? Data(contentsOf: url!)
         legisImage.image = UIImage(data: data!)
+        
+        let defaults = UserDefaults.standard;
+        var favLDict = [String:[String?]]()
+        favLDict = defaults.object(forKey: "favLegislators") as! [String:[String?]]
+        if favLDict[id] != nil {
+            favSwitch.setOn(true, animated: false)
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -61,6 +72,20 @@ class DetailController: UIViewController, UITableViewDataSource,TTTAttributedLab
         return details.count
     }
 
+    @IBAction func favoriteToggled(_ sender: UISwitch) {
+        let defaults = UserDefaults.standard;
+        var favLDict = [String:[String?]]()
+        
+        favLDict = defaults.object(forKey: "favLegislators") as! [String:[String?]]
+        
+        if(sender.isOn)
+        {
+            favLDict[id] = details
+        } else {
+            favLDict[id] = nil
+        }
+        defaults.set(favLDict,forKey: "favLegislators")
+    }
     /*
     // MARK: - Navigation
 

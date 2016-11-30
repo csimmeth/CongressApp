@@ -19,6 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard;
+        let lDict = [String: [String?]]()
+        let bDict = [String: [String?]]()
+        let cDict = [String: [String?]]()
+
+        
+        defaults.set(lDict, forKey: "favLegislators")
+        defaults.set(bDict,forKey: "favBills")
+        defaults.set(bDict,forKey: "favCommittees")
+
+        
         return true
     }
 
