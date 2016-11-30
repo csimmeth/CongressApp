@@ -17,13 +17,14 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var legislatorsTableView: UITableView!
 
+    let alphabet:[String] = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     var numLegislators = 0;
     var legislators:[JSON] = []
     let data:[[String]] = [["One","Two","Three"],["Four","Five","Six"],["Seven","Eight","Nine"]]
     var currentSelection:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = "http://hw811944.us-west-2.elasticbeanstalk.com/a8/index.php?keyword=legislators"
+        let url = "http://hw811944.us-west-2.elasticbeanstalk.com/a8/index.php?keyword=bystate"
         Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -45,12 +46,12 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let current_index:Int = indexPath.section * (numLegislators/26) + indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath)
-        cell.textLabel?.text = "\(legislators[indexPath.row]["last_name"].string!), \(legislators[indexPath.row]["first_name"].string!)"
-        cell.detailTextLabel?.text = legislators[indexPath.row]["state_name"].string!
-        //cell.imageView?.sd_setImageWithURL(NSURL(string: "https://theunitedstates.io/images/congress/original/D000626.jpg")! as URL,placeholderImage:UIImage(named:"placeholder.png"))
-        //cell.imageView?.sd_setImage(with: NSURL(string: "https://theunitedstates.io/images/congress/original/D000626.jpg")! as URL!)
-        let id = legislators[indexPath.row]["bioguide_id"].string!
+        cell.textLabel?.text = "\(legislators[current_index]["last_name"].string!), \(legislators[current_index]["first_name"].string!)"
+        cell.detailTextLabel?.text = legislators[current_index]["state_name"].string!
+       
+        let id = legislators[current_index]["bioguide_id"].string!
         let urlString = "https://theunitedstates.io/images/congress/original/\(id).jpg"
         
         
@@ -74,13 +75,28 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numLegislators
+        return numLegislators/26
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return alphabet[section]
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 26;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        currentSelection = indexPath.row
+        currentSelection = indexPath.section * (numLegislators/26) +  indexPath.row
         performSegue(withIdentifier: "detailsSegue", sender: Any?.self)
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return alphabet
+    }
+    
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return alphabet.index(of: title)!
     }
     
     
@@ -119,12 +135,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
                           website,
                           person["term_end"].string]
         detail.id = person["bioguide_id"].string!
-        
-        //person["twitter_id"].string!,
-        //person["facebook_id"].string!,
-        //person["website"].string!,
-        //person["office"].string!,
-
+ 
     }
 }
 
