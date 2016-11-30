@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		16F6A1E5AD2F64CED5C79360 /* Pods_CongressTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65029B870142C68596517BA3 /* Pods_CongressTests.framework */; };
+		522425AA1DEEC407007A00B4 /* ActiveBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425A91DEEC407007A00B4 /* ActiveBillsViewController.swift */; };
+		522425AC1DEEC708007A00B4 /* billCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425AB1DEEC708007A00B4 /* billCell.swift */; };
+		522425AE1DEECC35007A00B4 /* billDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425AD1DEECC35007A00B4 /* billDetailController.swift */; };
 		528E13DD1DEE02F500187B7C /* legisDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */; };
 		528E13DF1DEE811900187B7C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E13DE1DEE811900187B7C /* ThirdViewController.swift */; };
 		52ECCA511DED4F580088F54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA501DED4F580088F54D /* AppDelegate.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522425A91DEEC407007A00B4 /* ActiveBillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveBillsViewController.swift; sourceTree = "<group>"; };
+		522425AB1DEEC708007A00B4 /* billCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = billCell.swift; sourceTree = "<group>"; };
+		522425AD1DEECC35007A00B4 /* billDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = billDetailController.swift; sourceTree = "<group>"; };
 		528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = legisDetailsCell.swift; sourceTree = "<group>"; };
 		528E13DE1DEE811900187B7C /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		52ECCA4D1DED4F580088F54D /* Congress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Congress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,9 +130,12 @@
 				528E13DE1DEE811900187B7C /* ThirdViewController.swift */,
 				52ECCA561DED4F580088F54D /* Main.storyboard */,
 				528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */,
+				522425AB1DEEC708007A00B4 /* billCell.swift */,
 				52ECCA591DED4F580088F54D /* Assets.xcassets */,
 				52ECCA5B1DED4F580088F54D /* LaunchScreen.storyboard */,
 				52ECCA5E1DED4F580088F54D /* Info.plist */,
+				522425A91DEEC407007A00B4 /* ActiveBillsViewController.swift */,
+				522425AD1DEECC35007A00B4 /* billDetailController.swift */,
 			);
 			path = Congress;
 			sourceTree = "<group>";
@@ -348,7 +357,10 @@
 				52ECCA751DED56B60088F54D /* DetailController.swift in Sources */,
 				52ECCA551DED4F580088F54D /* SecondViewController.swift in Sources */,
 				52ECCA511DED4F580088F54D /* AppDelegate.swift in Sources */,
+				522425AC1DEEC708007A00B4 /* billCell.swift in Sources */,
+				522425AA1DEEC407007A00B4 /* ActiveBillsViewController.swift in Sources */,
 				528E13DF1DEE811900187B7C /* ThirdViewController.swift in Sources */,
+				522425AE1DEECC35007A00B4 /* billDetailController.swift in Sources */,
 				52ECCA531DED4F580088F54D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

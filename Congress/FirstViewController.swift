@@ -106,6 +106,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier != "menu" ){
         let detail:DetailController = segue.destination as! DetailController
         //Set data of congressmen here for detailcontroller to use
         let person:JSON = legislators[currentSelection]
@@ -140,7 +141,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
                           website,
                           person["term_end"].string]
         detail.id = person["bioguide_id"].string!
- 
+        }
     }
 }
 
