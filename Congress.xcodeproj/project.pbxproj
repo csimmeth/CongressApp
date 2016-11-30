@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16F6A1E5AD2F64CED5C79360 /* Pods_CongressTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65029B870142C68596517BA3 /* Pods_CongressTests.framework */; };
 		528E13DD1DEE02F500187B7C /* legisDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */; };
+		528E13DF1DEE811900187B7C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E13DE1DEE811900187B7C /* ThirdViewController.swift */; };
 		52ECCA511DED4F580088F54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA501DED4F580088F54D /* AppDelegate.swift */; };
 		52ECCA531DED4F580088F54D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA521DED4F580088F54D /* FirstViewController.swift */; };
 		52ECCA551DED4F580088F54D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA541DED4F580088F54D /* SecondViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = legisDetailsCell.swift; sourceTree = "<group>"; };
+		528E13DE1DEE811900187B7C /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		52ECCA4D1DED4F580088F54D /* Congress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Congress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ECCA501DED4F580088F54D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52ECCA521DED4F580088F54D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				52ECCA501DED4F580088F54D /* AppDelegate.swift */,
 				52ECCA521DED4F580088F54D /* FirstViewController.swift */,
 				52ECCA541DED4F580088F54D /* SecondViewController.swift */,
+				528E13DE1DEE811900187B7C /* ThirdViewController.swift */,
 				52ECCA561DED4F580088F54D /* Main.storyboard */,
 				528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */,
 				52ECCA591DED4F580088F54D /* Assets.xcassets */,
@@ -345,6 +348,7 @@
 				52ECCA751DED56B60088F54D /* DetailController.swift in Sources */,
 				52ECCA551DED4F580088F54D /* SecondViewController.swift in Sources */,
 				52ECCA511DED4F580088F54D /* AppDelegate.swift in Sources */,
+				528E13DF1DEE811900187B7C /* ThirdViewController.swift in Sources */,
 				52ECCA531DED4F580088F54D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ target 'Congress' do
   pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'TTTAttributedLabel'
+  pod 'SlideMenuControllerSwift'
 
   target 'CongressTests' do
     inherit! :search_paths

@@ -80,7 +80,7 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentSelection = indexPath.row
-        performSegue(withIdentifier: "detailsSegue", sender: Any?.self)
+        performSegue(withIdentifier: "detailsHSegue", sender: Any?.self)
     }
     
     
