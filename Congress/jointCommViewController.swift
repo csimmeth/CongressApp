@@ -79,18 +79,33 @@ class jointCommViewController: UIViewController, UITableViewDataSource,UITableVi
             
             let comm_info:JSON = committees[currentSelection]
             
+            
             var office:String = "N/A"
+            var parent:String = "N/A"
+            var chamber:String = "N/A"
+            var contact:String = "N/A"
+            
             if let temp = comm_info["office"].string {
                 office = temp
             }
+            if let temp = comm_info["parent_committee_id"].string {
+                parent = temp
+            }
+            if let temp = comm_info["chamber"].string {
+                chamber = temp
+            }
+            if let temp = comm_info["phone"].string {
+                contact = temp
+            }
             
             detail.details = [comm_info["committee_id"].string,
-                              comm_info["parent_committee_id"].string,
-                              comm_info["chamber"].string,
+                              parent,
+                              chamber,
                               office,
-                              comm_info["phone"].string,
+                              contact,
             ]
-            detail.text = comm_info["name"].string!        }
+            detail.text = comm_info["name"].string!
+        }
         
     }
 }

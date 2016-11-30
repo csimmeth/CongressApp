@@ -792,7 +792,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Committees" id="bWR-wK-Up7">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="3GL-5z-Oar"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="3GL-5z-Oar">
+                                            <connections>
+                                                <segue destination="XEf-pO-fOT" kind="show" identifier="menu" id="EAv-Uf-qeP"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -863,7 +867,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Committees" id="vG5-dC-c7f">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ptD-RF-giM"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ptD-RF-giM">
+                                            <connections>
+                                                <segue destination="XEf-pO-fOT" kind="show" identifier="menu" id="xmv-x3-Dci"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1016,7 +1024,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="hvy-Ls-gMz"/>
         <segue reference="9d2-Hg-HNv"/>
-        <segue reference="L3Y-PC-8xU"/>
+        <segue reference="EAv-Uf-qeP"/>
         <segue reference="jPF-9f-TqU"/>
         <segue reference="APa-na-Pws"/>
         <segue reference="QWa-gk-Nut"/>
