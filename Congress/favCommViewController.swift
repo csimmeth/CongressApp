@@ -1,5 +1,5 @@
 //
-//  favBillViewController.swift
+//  favCommViewController.swift
 //  Congress
 //
 //  Created by Caleb Simmeth on 11/30/16.
@@ -12,21 +12,24 @@ import SwiftyJSON
 import SDWebImage
 
 
-class favBillViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
+class favCommViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
     
     
     var numLegislators = 0;
     var currentSelection:Int = 0
-    var favBDict = [String: [String?]]()
+    var favDict = [String: [String?]]()
     var keyArray:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let defaults = UserDefaults.standard;
         
-        favBDict = defaults.object(forKey: "favBills") as! [String:[String?]]
-        numLegislators = favBDict.count
-        keyArray = Array(favBDict.keys)
+        favDict = defaults.object(forKey: "favCommittees") as! [String:[String?]]
+        favDict["Test Name"] = ["Comm ID","Comm Type"]
+        
+        //numLegislators = favLegislators.count
+        numLegislators = favDict.count
+        keyArray = Array(favDict.keys)
         
         // Do any additional setup after loading the view, typically from a nib.p
     }
@@ -39,9 +42,8 @@ class favBillViewController: UIViewController, UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let current_index:Int = indexPath.row
         //let current = favBDict[keyArray[current_index]]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favBillsCell", for: indexPath) as! FavBillCell
-        
-        cell.billText.text = keyArray[current_index]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favCommCell", for: indexPath)
+        cell.textLabel?.text = keyArray[current_index]
         
         return cell
     }
