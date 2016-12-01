@@ -11,6 +11,7 @@ target 'Congress' do
   pod 'SDWebImage'
   pod 'TTTAttributedLabel'
   pod 'SlideMenuControllerSwift'
+  pod 'SwiftSpinner'
 
   target 'CongressTests' do
     inherit! :search_paths

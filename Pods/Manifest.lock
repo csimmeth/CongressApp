@@ -4,6 +4,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SlideMenuControllerSwift (3.0.0)
+  - SwiftSpinner (1.1.0)
   - SwiftyJSON (3.1.3)
   - TTTAttributedLabel (2.0.0)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Alamofire
   - SDWebImage
   - SlideMenuControllerSwift
+  - SwiftSpinner
   - SwiftyJSON
   - TTTAttributedLabel
 
@@ -18,9 +20,10 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
+  SwiftSpinner: c03815614599b91eea46594bd52ba742849d0414
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 613420370db83451e0b4e1d9fbf2e22a34144fbc
+PODFILE CHECKSUM: e83e8c46bd836feac9cd6300d2cc7bf1c6f0fb81
 
 COCOAPODS: 1.1.1

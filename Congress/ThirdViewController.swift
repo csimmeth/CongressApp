@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SwiftSpinner
 
 
 
@@ -21,7 +22,8 @@ class ThirdViewController: UIViewController, UITableViewDataSource,UITableViewDe
     var legislators:[JSON] = []
     let data:[[String]] = [["One","Two","Three"],["Four","Five","Six"],["Seven","Eight","Nine"]]
     var currentSelection:Int = 0
-    override func viewDidLoad() {
+    override func viewDidLoad(){
+        SwiftSpinner.show("Loading...")
         super.viewDidLoad()
         let url = "http://hw811944.us-west-2.elasticbeanstalk.com/a8/index.php?keyword=senate"
         Alamofire.request(url).validate().responseJSON { response in
@@ -31,8 +33,10 @@ class ThirdViewController: UIViewController, UITableViewDataSource,UITableViewDe
                 self.legislators = json["results"].arrayValue
                 self.numLegislators = self.legislators.count
                 self.senateTableView.reloadData()
+                SwiftSpinner.hide()
             case .failure(let error):
                 print(error)
+                 SwiftSpinner.hide()
             }
         }
         // Do any additional setup after loading the view, typically from a nib.

@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SwiftSpinner
 
 
 
@@ -26,6 +27,7 @@ class senateCommViewController: UIViewController, UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SwiftSpinner.show("Loading...")
         
         let appearance = UITabBarItem.appearance()
         let attributes: [String: AnyObject] = [NSFontAttributeName:UIFont.systemFont(ofSize: 20)]
@@ -39,8 +41,11 @@ class senateCommViewController: UIViewController, UITableViewDataSource,UITableV
                 self.committees = json["results"].arrayValue
                 self.numElements = self.committees.count
                 self.tableView.reloadData()
+                SwiftSpinner.hide()
             case .failure(let error):
                 print(error)
+                SwiftSpinner.hide()
+
             }
         }
         // Do any additional setup after loading the view, typically from a nib.

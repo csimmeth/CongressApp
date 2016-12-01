@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SwiftSpinner
 
 
 
@@ -23,6 +24,7 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
     var currentSelection:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        SwiftSpinner.show("Loading...")
         let url = "http://hw811944.us-west-2.elasticbeanstalk.com/a8/index.php?keyword=house"
         Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
@@ -31,8 +33,10 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
                 self.legislators = json["results"].arrayValue
                 self.numLegislators = self.legislators.count
                 self.houseTableView.reloadData()
+                SwiftSpinner.hide()
             case .failure(let error):
                 print(error)
+                SwiftSpinner.hide()
             }
         }
         // Do any additional setup after loading the view, typically from a nib.

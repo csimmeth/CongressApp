@@ -22,6 +22,11 @@ class favLegislatorsViewController: UIViewController, UITableViewDataSource,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appearance = UITabBarItem.appearance()
+        let attributes: [String: AnyObject] = [NSFontAttributeName:UIFont.systemFont(ofSize: 20)]
+        appearance.setTitleTextAttributes(attributes, for: .normal)
+
+        
         let defaults = UserDefaults.standard;
         
         favLDict = defaults.object(forKey: "favLegislators") as! [String:[String?]]

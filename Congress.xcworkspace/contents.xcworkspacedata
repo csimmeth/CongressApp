@@ -2,24 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:BaseTableViewCell.swift">
-   </FileRef>
-   <FileRef
-      location = "group:DataTableViewCell.swift">
-   </FileRef>
-   <FileRef
-      location = "group:DataTableViewCell.xib">
-   </FileRef>
-   <FileRef
-      location = "group:ImageHeaderView.swift">
-   </FileRef>
-   <FileRef
-      location = "group:ImageHeaderView.xib">
-   </FileRef>
-   <FileRef
       location = "group:Congress.xcodeproj">
    </FileRef>
    <FileRef

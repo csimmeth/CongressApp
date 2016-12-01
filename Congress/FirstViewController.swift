@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SwiftSpinner
 
 
 
@@ -29,6 +30,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     var currentSelection:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        SwiftSpinner.show("Loading...")
         
         let appearance = UITabBarItem.appearance()
         let attributes: [String: AnyObject] = [NSFontAttributeName:UIFont.systemFont(ofSize: 20)]
@@ -56,8 +58,11 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
                 
                 self.numSections = self.alphabet.count
                 self.legislatorsTableView.reloadData()
+                 SwiftSpinner.hide()
             case .failure(let error):
                 print(error)
+                SwiftSpinner.hide()
+               
             }
         }
         

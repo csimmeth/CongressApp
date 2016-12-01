@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SwiftSpinner
 
 
 
@@ -27,6 +28,7 @@ class NewBillsViewController: UIViewController, UITableViewDataSource,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SwiftSpinner.show("Loading...")
         
         let appearance = UITabBarItem.appearance()
         let attributes: [String: AnyObject] = [NSFontAttributeName:UIFont.systemFont(ofSize: 20)]
@@ -40,8 +42,12 @@ class NewBillsViewController: UIViewController, UITableViewDataSource,UITableVie
                 self.bills = json["results"].arrayValue
                 self.numElements = self.bills.count
                 self.newTableView.reloadData()
+                SwiftSpinner.hide()
+
             case .failure(let error):
                 print(error)
+                SwiftSpinner.hide()
+
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
