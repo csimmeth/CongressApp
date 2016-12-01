@@ -18,6 +18,7 @@
 		522425B81DEF552D007A00B4 /* commDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425B71DEF552D007A00B4 /* commDetailController.swift */; };
 		522425BC1DEF62B1007A00B4 /* favLegislatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425BB1DEF62B1007A00B4 /* favLegislatorsViewController.swift */; };
 		522425BE1DEF981A007A00B4 /* favBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425BD1DEF981A007A00B4 /* favBillViewController.swift */; };
+		522425C01DEFD575007A00B4 /* FavBillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522425BF1DEFD575007A00B4 /* FavBillCell.swift */; };
 		528E13DD1DEE02F500187B7C /* legisDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */; };
 		528E13DF1DEE811900187B7C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528E13DE1DEE811900187B7C /* ThirdViewController.swift */; };
 		52ECCA511DED4F580088F54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECCA501DED4F580088F54D /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		522425B71DEF552D007A00B4 /* commDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commDetailController.swift; sourceTree = "<group>"; };
 		522425BB1DEF62B1007A00B4 /* favLegislatorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favLegislatorsViewController.swift; sourceTree = "<group>"; };
 		522425BD1DEF981A007A00B4 /* favBillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favBillViewController.swift; sourceTree = "<group>"; };
+		522425BF1DEFD575007A00B4 /* FavBillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavBillCell.swift; sourceTree = "<group>"; };
 		528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = legisDetailsCell.swift; sourceTree = "<group>"; };
 		528E13DE1DEE811900187B7C /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		52ECCA4D1DED4F580088F54D /* Congress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Congress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				522425B51DEF4D97007A00B4 /* jointCommViewController.swift */,
 				528E13DC1DEE02F500187B7C /* legisDetailsCell.swift */,
 				522425AB1DEEC708007A00B4 /* billCell.swift */,
+				522425BF1DEFD575007A00B4 /* FavBillCell.swift */,
 				52ECCA591DED4F580088F54D /* Assets.xcassets */,
 				52ECCA5B1DED4F580088F54D /* LaunchScreen.storyboard */,
 				52ECCA5E1DED4F580088F54D /* Info.plist */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522425C01DEFD575007A00B4 /* FavBillCell.swift in Sources */,
 				522425BC1DEF62B1007A00B4 /* favLegislatorsViewController.swift in Sources */,
 				522425B61DEF4D97007A00B4 /* jointCommViewController.swift in Sources */,
 				528E13DD1DEE02F500187B7C /* legisDetailsCell.swift in Sources */,

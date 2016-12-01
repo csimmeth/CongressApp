@@ -12,6 +12,7 @@ class billDetailController: UIViewController, UITableViewDataSource,TTTAttribute
     
     @IBOutlet weak var textField: UITextView!
     
+    @IBOutlet weak var favSwitch: UISwitch!
     let labels:[String] = ["Bill ID","Bill Type","Sponsor","Last Action","PDF","Chamber","Last Vote","Status"]
     var details:[String?] = []
     var text:String = ""
@@ -19,6 +20,15 @@ class billDetailController: UIViewController, UITableViewDataSource,TTTAttribute
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.text = text
+        
+        
+        let defaults = UserDefaults.standard;
+        var favDict = [String:[String?]]()
+        favDict = defaults.object(forKey: "favBills") as! [String:[String?]]
+        if favDict[text] != nil {
+            favSwitch.setOn(true, animated: false)
+        }
+
         
         // Do any additional setup after loading the view.
     }
@@ -56,6 +66,20 @@ class billDetailController: UIViewController, UITableViewDataSource,TTTAttribute
         return details.count
     }
     
+    @IBAction func favToggled(_ sender: UISwitch) {
+        let defaults = UserDefaults.standard;
+        var favDict = [String:[String?]]()
+        
+        favDict = defaults.object(forKey: "favBills") as! [String:[String?]]
+        
+        if(sender.isOn)
+        {
+            favDict[text] = details
+        } else {
+            favDict[text] = nil
+        }
+        defaults.set(favDict,forKey: "favBills")
+    }
     /*
      // MARK: - Navigation
      

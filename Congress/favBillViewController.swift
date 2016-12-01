@@ -41,12 +41,12 @@ class favBillViewController: UIViewController, UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let current_index:Int = indexPath.row
-        let current = favBDict[keyArray[current_index]]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favBillsCell", for: indexPath) as! billCell
+        //let current = favBDict[keyArray[current_index]]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favBillsCell", for: indexPath) as! FavBillCell
         
-        cell.bill_id.text = current?[0]!
+        //cell.bill_id.text = current?[0]!
         cell.billText.text = keyArray[current_index]
-        cell.billDate.text = current?[1]!
+        //cell.billDate.text = current?[1]!
         
         return cell
     }

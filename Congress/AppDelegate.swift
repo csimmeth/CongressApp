@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         defaults.set(lDict, forKey: "favLegislators")
         defaults.set(bDict,forKey: "favBills")
-        defaults.set(bDict,forKey: "favCommittees")
+        defaults.set(cDict,forKey: "favCommittees")
 
         
         return true
