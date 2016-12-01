@@ -127,8 +127,10 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         var current_index = 0
-        for i in 0...indexPath.section{
-            current_index += charCount[i]
+        if(indexPath.section > 0){
+            for i in 0...indexPath.section-1{
+                current_index += charCount[i]
+            }
         }
         current_index += indexPath.row
         currentSelection = current_index
