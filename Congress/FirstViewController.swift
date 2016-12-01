@@ -17,10 +17,15 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var legislatorsTableView: UITableView!
 
-    let alphabet:[String] = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    let alphabet:[String] = ["A","C","D","F","G","H","I","K","L","M","N","O","P","R","S","T","U","V","W"]
+    let charCount = [20,71,4,29,17,3,41,13,8,70,82,32,20,4,12,49,7,16,30]
+
     var numLegislators = 0;
+    var numSections = 0;
     var legislators:[JSON] = []
     let data:[[String]] = [["One","Two","Three"],["Four","Five","Six"],["Seven","Eight","Nine"]]
+       var charMap = [String:Int]()
+    var sectionTitles = [String]()
     var currentSelection:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +41,26 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
                 let json = JSON(value)
                 self.legislators = json["results"].arrayValue
                 self.numLegislators = self.legislators.count
+               
+                for index in 0...self.numLegislators-1{
+                    let name = self.legislators[index]["state_name"].string
+                    let char = name?[(name?.startIndex)!]
+                    let first:String = String(describing: char)
+                    if self.charMap[first] != nil{
+                        self.charMap[first]! += 1
+                    } else {
+                        self.charMap[first] = 1
+                    }
+                }
+                self.sectionTitles = Array(self.charMap.keys)
+                
+                self.numSections = self.alphabet.count
                 self.legislatorsTableView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
+        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -51,7 +71,14 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let current_index:Int = indexPath.section * (numLegislators/26) + indexPath.row
+        var current_index = 0
+       
+        for i in 0...indexPath.section{
+            current_index += charCount[i]
+        }
+        current_index += indexPath.row
+        
+        //let current_index:Int = indexPath.section * (numLegislators/26) + indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath)
         cell.textLabel?.text = "\(legislators[current_index]["last_name"].string!), \(legislators[current_index]["first_name"].string!)"
         cell.detailTextLabel?.text = legislators[current_index]["state_name"].string!
@@ -80,7 +107,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numLegislators/26
+        return charCount[section]
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -88,11 +115,17 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 26;
+        return numSections
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currentSelection = indexPath.section * (numLegislators/26) +  indexPath.row
+        
+        var current_index = 0
+        for i in 0...indexPath.section{
+            current_index += charCount[i]
+        }
+        current_index += indexPath.row
+        currentSelection = current_index
         performSegue(withIdentifier: "detailsSegue", sender: Any?.self)
     }
     
