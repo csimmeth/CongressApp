@@ -38,6 +38,7 @@ class billDetailController: UIViewController, UITableViewDataSource,TTTAttribute
         // Dispose of any resources that can be recreated.
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billDetailsCell", for: indexPath) as! legisDetailsCell
         cell.labels?.text = labels[indexPath.row] // set this as headers

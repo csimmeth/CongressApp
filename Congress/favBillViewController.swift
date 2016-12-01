@@ -15,6 +15,7 @@ import SDWebImage
 class favBillViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
     
     
+    @IBOutlet weak var tableView: UITableView!
     var numLegislators = 0;
     var currentSelection:Int = 0
     var favBDict = [String: [String?]]()
@@ -47,54 +48,24 @@ class favBillViewController: UIViewController, UITableViewDataSource,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numLegislators
+        return keyArray.count
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentSelection = indexPath.row
-        //performSegue(withIdentifier: "detailsSSegue", sender: Any?.self) //TODO name segue
+        performSegue(withIdentifier: "favBillSegue", sender: Any?.self) //TODO name segue
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*
+        
          if(segue.identifier != "menu" ){
-         let detail:DetailController = segue.destination as! DetailController
-         //Set data of congressmen here for detailcontroller to use
-         let person:JSON = legislators[currentSelection]
-         
-         var fax_string:String? = "N/A"
-         var twitter_id:String? = "N/A"
-         var facebook_id:String? = "N/A"
-         var website:String? = "N/A"
-         
-         if let temp = person["fax"].string {
-         fax_string = temp
-         }
-         if let temp = person["twitter_id"].string {
-         twitter_id = "https://twitter.com/\(temp)"
-         }
-         if let temp = person["facebook_id"].string {
-         facebook_id = "https://facebook.com/\(temp)"
-         }
-         if let temp = person["website"].string {
-         website = temp
-         }
-         
-         detail.details = [person["first_name"].string,
-         person["last_name"].string,
-         person["state_name"].string,
-         person["gender"].string,
-         person["birthday"].string,
-         person["chamber"].string,
-         fax_string,
-         twitter_id,
-         facebook_id,
-         website,
-         person["term_end"].string]
-         detail.id = person["bioguide_id"].string!
-         }
-         */
+         let detail:billDetailController = segue.destination as! billDetailController
+            
+         detail.details = favBDict[keyArray[currentSelection]]!
+         detail.text = keyArray[currentSelection]
+        }
+        
     }
 }

@@ -104,4 +104,8 @@ class ActiveBillsViewController: UIViewController, UITableViewDataSource,UITable
          
         }
     }
+    
+    @IBAction func backFromModal(segue: UIStoryboardSegue){
+        print("back")
+    }
 }
