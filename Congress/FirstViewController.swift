@@ -19,7 +19,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     @IBOutlet weak var legislatorsTableView: UITableView!
 
     let alphabet:[String] = ["A","C","D","F","G","H","I","K","L","M","N","O","P","R","S","T","U","V","W"]
-    let charCount = [20,71,4,29,17,3,41,13,8,70,82,32,20,4,12,49,7,16,30]
+    let charCount = [30,71,4,29,17,3,41,13,8,70,82,32,20,4,12,49,7,16,30]
 
     var numLegislators = 0;
     var numSections = 0;
@@ -78,12 +78,13 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var current_index = 0
        
-        for i in 0...indexPath.section{
-            current_index += charCount[i]
+        if(indexPath.section > 0){
+            for i in 0...indexPath.section-1{
+                current_index += charCount[i]
+            }
         }
         current_index += indexPath.row
         
-        //let current_index:Int = indexPath.section * (numLegislators/26) + indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath)
         cell.textLabel?.text = "\(legislators[current_index]["last_name"].string!), \(legislators[current_index]["first_name"].string!)"
         cell.detailTextLabel?.text = legislators[current_index]["state_name"].string!
