@@ -29,6 +29,9 @@ class favCommViewController: UIViewController, UITableViewDataSource,UITableView
         //numLegislators = favLegislators.count
         numLegislators = favDict.count
         keyArray = Array(favDict.keys)
+        keyArray = keyArray.sorted{
+            return $0 < $1
+        }
         
         // Do any additional setup after loading the view, typically from a nib.p
     }

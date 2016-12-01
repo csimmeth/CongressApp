@@ -28,6 +28,9 @@ class favBillViewController: UIViewController, UITableViewDataSource,UITableView
         favBDict = defaults.object(forKey: "favBills") as! [String:[String?]]
         numLegislators = favBDict.count
         keyArray = Array(favBDict.keys)
+        keyArray = keyArray.sorted{
+            return $0 < $1
+        }
         
         // Do any additional setup after loading the view, typically from a nib.p
     }

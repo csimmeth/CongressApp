@@ -34,6 +34,9 @@ class favLegislatorsViewController: UIViewController, UITableViewDataSource,UITa
         //numLegislators = favLegislators.count
         numLegislators = favLDict.count
         keyArray = Array(favLDict.keys)
+        keyArray = keyArray.sorted{
+            return (favLDict[$0]?[1]!)! < (favLDict[$1]?[1]!)!
+        }
         
         // Do any additional setup after loading the view, typically from a nib.p
     }
